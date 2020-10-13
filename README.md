@@ -11,7 +11,7 @@ Passing the '-h' or '--help' option will print a brief description of posibble o
 
 Passing either the option '-f' or '--flush' will result in the script re-processing and re-uploading all files to InfluxDB. However, the script will not delete the old data from the InfluxDB database as this should be done by the user with elevated privileges. Instead any new data with the same timestamp as the old data will overwrite the old data with that same timestamp.
 
-## Examples
+## Usage
 
 Run script normally (upload newest data only):  
 
@@ -50,3 +50,7 @@ The script was written for Python 3.6.8 and does not contain any code or package
 ## Configuration
 
 Configuration is done in a local cfg-file. This way folder structures, database access and--most importantly--passwords are not hardcoded into the script. An empty cfg-config file is supplied with the repository.
+
+## License
+
+If parts of this code are useful to you please feel free to copy it.  It is free software, and may be redistributed under the terms specified in the [LICENSE](LICENSE.txt) file.

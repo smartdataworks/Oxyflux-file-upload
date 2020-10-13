@@ -46,3 +46,7 @@ python3 upload_raw_data.py --flush
 ## Compatability
 
 The script was written for Python 3.6.8 and does not contain any code or packages that are known to have breaking changes coming soon (as of the time of this writing).
+
+## Configuration
+
+Configuration is done in a local cfg-file. This way folder structures, database access and--most importantly--passwords are not hardcoded into the script. An empty cfg-config file is supplied with the repository.

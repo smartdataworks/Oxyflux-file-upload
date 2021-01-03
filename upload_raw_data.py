@@ -178,7 +178,7 @@ def find_input_files(start_dates, glob_patterns):
 
     # Read in the lists of input file names.
     input_files = {k: glob(v[0] + calvin_date_string + v[1])
-                   if k is 'calvin'
+                   if k == 'calvin'
                    else glob(v[0] + chamber_date_string + v[1])
                    for k, v in glob_patterns.items()}
 
@@ -624,7 +624,7 @@ def move_string_to_the_end(row: List[str], string: str) -> List[str]:
     """
 
     length_before = len(row)
-    row = [x for x in row if x is not string]
+    row = [x for x in row if x != string]
     length_after = len(row)
     appendix = [string for _ in range(length_before - length_after)]
 
@@ -996,7 +996,7 @@ def main(safety_on=False):
     # Load names of all available input files
     input_files = find_input_files(START_DATES, GLOB_PATTERNS)
 
-    input_files = {k: (remove_todays_file(v) if k is not 'calvin' else v)
+    input_files = {k: (remove_todays_file(v) if k != 'calvin' else v)
                    for k, v in input_files.items()}
 
     # Extract new files
@@ -1014,7 +1014,7 @@ def main(safety_on=False):
     load_chamber_data = load_data(export, TAGS['base'])
     # This is the step where we load the actual data into Python.
     raw_data = {i: load_chamber_data(i) for i in new_files.keys()
-                if i is not 'calvin'}
+                if i != 'calvin'}
 
     # Make Calvin dataframe
     raw_data['calvin'] = list(map(lambda x: load_calvin_file(x,

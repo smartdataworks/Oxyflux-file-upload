@@ -29,9 +29,8 @@ from configparser import ConfigParser, BasicInterpolation
 # =============================================================================
 # Set up configuration
 # =============================================================================
-working_dir = '/media/shared/CloudStation/test_bed/new_system/step_1_upload'
 config = ConfigParser(interpolation=BasicInterpolation())
-config.read(working_dir + '/local.cfg')
+config.read('oxyflux_etl.cfg')
 
 # Settings for InfluxDB connection
 INFLUX_HOST = config.get('INFLUX', 'HOST')
@@ -309,6 +308,7 @@ def extract_new_files_only(all_files, old_files):
                  for k in all_files.keys()}
 
     return new_files
+
 
 # =============================================================================
 # File filtering
